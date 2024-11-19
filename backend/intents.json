@@ -1,0 +1,37 @@
+
+{"intents": [
+    {"tag": "protein intake",
+     "patterns": ["how much protein should I eat per day", "how many grams of protein should I eat", 
+                  "how many grams of protein should I eat when on a cut", "how many grams of protein should I eat when cutting", 
+                  "how many grams of protein should I eat when on a bulk", "how many grams of protein should I eat when bulking"
+                 ],
+     "responses": ["0.8-1 gram per pound of body weight is sufficient for muscle gain. "] 
+    },
+    {"tag": "macros",
+     "patterns": ["what percentage of calories in my diet should be fats", "what should my macronutrient ratio be"],
+     "responses": ["Generally, 20-30% of your calories should be from fat, 30% protein, and 40-50% carbohydrates. You can also use an online macronutrient calculator to get a better idea of the macronutrient ratio based on your caloric needs."]
+    },
+    {"tag": "cutting",
+     "patterns": ["how do I go on a cut", "how do I cut fat", "how do I get lean", "how do I lose body fat", "how do I make my muscles more visible"],
+     "responses": ["In order to go on a successful cut, you should aim to be in a calorie deficit that allows you to lose 0.5-1% body weight per week. You should also increase your protein intake to 1-1.4g per pound of body weight. Engaging in high-intensity workouts can also help to burn more calories."]
+    },
+    {"tag": "bulking",
+     "patterns": ["how do I gain muscle", "how do I bulk", "how do I go on a bulk", "how do I get more muscle"],
+     "responses": ["In order to gain muscle, one must eat more calories than normal to promote muscle growth and carb intake should be increased to fuel your workouts. A 10-20% increase from your maintenence calories should produce a 0.25-0.5% increase in body weight per week which is sufficient. You should also aim to train each muscle group twice a week for maximum growth and be sure to get 7-9 hours of sleep daily!"]
+    },
+    {"tag": "routine",
+     "patterns": ["how many days a week should I go to the gym", "what is a good gym routine", "how often should I go to the gym", 
+                  "what is a good gym routine", "what is a good workout split"
+                 ],
+     "responses": ["There is no exact answer, it depends on your goals and lifestyle. For example someone may choose to do a Push-Pull-Legs split 6 times a week or 3 times a week if they have a busy lifestyle. Some people also choose to do full-body workouts, a bro split, and the Arnold split. In summary, a routine that you are able to stay consistent with and one that aligns with your goals is what matters."]
+    },
+    {"tag": "supplements",
+     "patterns": ["what supplements should I take", "what are good supplements for lifting"],
+     "responses": ["The most common supplements for lifting are protein supplements and creatine. Protein supplements allow you to get extra protein that you might not get from your nutrition. Creatine helps improve muscle performance and increase strength. Overall, neither of these supplements are required as they are found in foods, but can be bought if you are need more."]
+    },
+    {"tag": "about",
+     "patterns": ["who are you", "who created you", "why were you created", "what is your purpose"],
+     "responses": ["I am FitBot! I was created by Justin to help people with common questions about going to the gym and related questions!"]
+    }
+]
+}
