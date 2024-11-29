@@ -21,7 +21,7 @@
     },
     {"tag": "routine",
      "patterns": ["how many days a week should I go to the gym", "what is a good gym routine", "how often should I go to the gym", 
-                  "what is a good gym routine", "what is a good workout split"
+                  "what is a good gym routine", "what is a good workout split", "how many days should I lift"
                  ],
      "responses": ["There is no exact answer, it depends on your goals and lifestyle. For example someone may choose to do a Push-Pull-Legs split 6 times a week or 3 times a week if they have a busy lifestyle. Some people also choose to do full-body workouts, a bro split, and the Arnold split. In summary, a routine that you are able to stay consistent with and one that aligns with your goals is what matters."]
     },
@@ -29,9 +29,17 @@
      "patterns": ["what supplements should I take", "what are good supplements for lifting"],
      "responses": ["The most common supplements for lifting are protein supplements and creatine. Protein supplements allow you to get extra protein that you might not get from your nutrition. Creatine helps improve muscle performance and increase strength. Overall, neither of these supplements are required as they are found in foods, but can be bought if you are need more."]
     },
-    {"tag": "about",
+    {"tag": "introduction",
      "patterns": ["who are you", "who created you", "why were you created", "what is your purpose"],
      "responses": ["I am FitBot! I was created by Justin to help people with common questions about going to the gym and related questions!"]
+    },
+    {"tag": "greeting",
+     "patterns": ["hi", "hey there", "hello", "yo", "what up", "wsg", "wsp", "wtw", "howdy", "hey", "what's good"," wassup"],
+     "responses": ["Hey there! My name is FitBot. If you have any fitness and gym related questions please let me know!"]
+    },
+    {"tag": "goodbye",
+     "patterns": ["bye", "seeya", "later", "peace", "bye bye", "goodbye"],
+     "responses": ["Goodbye! If you'd like to chat again please let me know!"]
     }
 ]
 }
