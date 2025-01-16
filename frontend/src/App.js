@@ -32,7 +32,12 @@ function Fitbot() {
   
   return (
     <div className="app">
-      <p>Welcome to FitBot</p>
+      <p>
+        Welcome to FitBot
+        <br />
+        What would you like to know? 
+      </p>
+      
       
       <div>
         <input
@@ -46,7 +51,7 @@ function Fitbot() {
       
       <button onClick={fetchData}>Send</button> 
       <div className="user-input">
-        {submittedMessage && <p>You: {submittedMessage}</p>} {/* Show submitted message aka user input*/}
+        {submittedMessage && <p className="user-text">You: {submittedMessage}</p>} {/* Show submitted message aka user input*/}
       </div>
       <div className = "bot-output">
         {response && <p>{response}</p>} {/* Show FitBot's response */}
