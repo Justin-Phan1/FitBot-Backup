@@ -54,7 +54,7 @@ def get_response(msg):
 
     # If the model does not recognize the user's input
     else:
-        return (f"{bot_name}: I'm sorry, unfortunately I'm only able to assist with gym and fitness related inquiries. If you have any questions please let me know!")
+        return (f"{bot_name}: I'm sorry, I'm afraid I don't understand.")
 
 if __name__ == "__main__":
     print("Hi there! My name is FitBot and I'm here to answer your gym/fitness related questions! If you would like to exit, please type 'quit'.")
