@@ -1,11 +1,12 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
 function Fitbot() {
   const [input, setInput] = useState('');                // User input
   const [messages, setMessages] = useState([]);          // Store all conversation messages
   const [error, setError] = useState('');                // Error state for handling failures
+  const messagesEndRef = useRef(null);  
 
   const fetchData = async () => {
     if (input.trim() === '') return; // Prevent sending empty messages
@@ -38,6 +39,12 @@ function Fitbot() {
       fetchData();
     }
   };
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messages]); 
 
   return (
     <div className="app">
@@ -73,6 +80,8 @@ function Fitbot() {
         )}
       </div>
     ))}
+
+    <div ref={messagesEndRef} />
 
     {error && <p className="error">{error}</p>} {/* Show error if any */}
     </div>
