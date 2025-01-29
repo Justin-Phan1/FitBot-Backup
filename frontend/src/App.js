@@ -3,60 +3,78 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function Fitbot() {
-  const [input, setInput] = useState('');               // Use state for user input
-  const [response, setResponse] = useState('');         // Use state for FitBot's response
-  const [error, setError] = useState('');               // Error state for handling failures
-  const [submittedMessage, setSubmittedMessage] = useState(''); // State to store submitted message
+  const [input, setInput] = useState('');                // User input
+  const [messages, setMessages] = useState([]);          // Store all conversation messages
+  const [error, setError] = useState('');                // Error state for handling failures
 
   const fetchData = async () => {
-    setError(''); // Reset previous errors
-    setSubmittedMessage(input); // Save the submitted message
+    if (input.trim() === '') return; // Prevent sending empty messages
+
+    setError(''); // Clear any previous errors
+
+    // Add user message to the conversation
+    const newMessages = [...messages, { sender: 'user', text: input }];
+    setMessages(newMessages); // Update state with user message
 
     try {
+      // Send user message to backend (API call)
       const result = await axios.post("http://127.0.0.1:5000/chat", { message: input });
-      
-      setResponse(result.data.answer);  // Set bot response
-      setInput(''); // Clear the input field after sending
+
+      // Add bot response to the conversation
+      setMessages(prevMessages => [
+        ...prevMessages,
+        { sender: 'bot', text: result.data.answer }
+      ]);
+      setInput(''); // Clear input field
     } catch (error) {
       console.error("Error:", error);
-      setError('Error');
-    } 
-  }
-  
-  // Allows "Enter" key to be used to submit input
+      setError('Something went wrong.');
+    }
+  };
+
+  // Handle "Enter" key press
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       fetchData();
     }
   };
-  
+
   return (
     <div className="app">
-      <p>
+      <p className="text">
         Welcome to FitBot
         <br />
-        What would you like to know? 
+        What would you like to know?
       </p>
-      
-      
+
       <div>
         <input
+          className="input-field"
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown} 
+          onKeyDown={handleKeyDown}
           placeholder="Message FitBot"
         />
+        <button className="button" onClick={fetchData}>&#8593; </button>
       </div>
-      
-      <button onClick={fetchData}>Send</button> 
-      <div className="user-input">
-        {submittedMessage && <p className="user-text">You: {submittedMessage}</p>} {/* Show submitted message aka user input*/}
+
+    {/* Render all messages */}
+    {messages.map((message, index) => (
+      <div key={index} className="message-container">
+        {message.sender === 'user' ? (
+          <div className="user-message">
+            {message.text}
+          </div>
+        ) : (
+          <div className="bot-message">
+            {message.text}
+          </div>
+        )}
       </div>
-      <div className = "bot-output">
-        {response && <p>{response}</p>} {/* Show FitBot's response */}
-      </div>
-        {error && <p className="error">{error}</p>} {/* Display error if any */}
+    ))}
+
+    {error && <p className="error">{error}</p>} {/* Show error if any */}
     </div>
   );
 }
