@@ -19,7 +19,7 @@ function Fitbot() {
 
     try {
       // Send user message to backend (API call)
-      const result = await axios.post("http://127.0.0.1:5000/chat", { message: input });
+      const result = await axios.post("https://fit-bot-s3t3.vercel.app/chat", { message: input });
 
       // Add bot response to the conversation
       setMessages(prevMessages => [
