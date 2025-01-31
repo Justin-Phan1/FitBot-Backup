@@ -12,7 +12,7 @@ sys.path.append(file_dir)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('backend/intents.json', 'r') as f:
+with open('intents.json', 'r') as f:
     intents = json.load(f)
 
 # Load training data file 
